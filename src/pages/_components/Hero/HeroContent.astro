@@ -1,0 +1,40 @@
+---
+interface Props {
+  name: string;
+  shortDesc: string;
+  location: string;
+  availability: boolean;
+}
+
+const { name, shortDesc, location, availability } = Astro.props;
+---
+
+<article class="flex flex-col gap-8">
+  <div class="content flex flex-col gap-5">
+    <h1 class="text-3xl font-bold">
+      Hi! I'm <span class="text-[#4E97D1]">{name}</span>
+    </h1>
+    <p class="text-xl">{shortDesc}</p>
+  </div>
+  <div class="location flex flex-col gap-3">
+    <!-- Línea 1: Location -->
+    <span class="flex items-center gap-2">
+      <iconify-icon icon="fa6-solid:map-location" width="22" height="22"
+      ></iconify-icon>
+      Location: {location}
+    </span>
+
+    <!-- Línea 2: Availability -->
+    <span
+      class={`flex items-center gap-2
+            before:content-['']
+            before:w-2
+            before:h-2
+            before:rounded-full
+            ${availability ? "before:bg-green-400" : "before:bg-yellow-400"}`}
+    >
+      {availability ? "Available to work" : "Open to opportunities"}
+    </span>
+  </div>
+  <slot />
+</article>

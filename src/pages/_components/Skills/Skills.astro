@@ -1,0 +1,161 @@
+---
+import Tag from "@shared/components/Tag.astro";
+---
+
+<section class="skills flex flex-col justify-start gap-4 w-full h-[560px] pt-5">
+  <Tag title="Skills" id="skills" />
+
+  <h1 class="text-2xl flex items-center justify-center gap-10">The skills, tools and technologies I use:</h1>
+
+  <article class="relative w-full max-w-5xl mx-auto overflow-hidden">
+    
+    <div class="flex w-max gap-4 skills-scroll">
+      
+      <!-- BLOQUE 1 -->
+      <div class="flex gap-4">
+        <div class="skill-icon" data-tooltip="Python">
+          <iconify-icon label="Python" icon="logos:python" width="48"></iconify-icon>
+        </div>
+        <div class="skill-icon">
+          <iconify-icon icon="cib:django" width="48"></iconify-icon>
+        </div>
+        <div class="skill-icon">
+          <iconify-icon icon="logos:jupyter" width="48"></iconify-icon>
+        </div>
+        <div class="skill-icon">
+          <iconify-icon icon="logos:microsoft-power-bi" width="48"></iconify-icon>
+        </div>
+        <div class="skill-icon">
+          <iconify-icon icon="ph:file-sql" width="48"></iconify-icon>
+        </div>
+        <div class="skill-icon">
+          <iconify-icon icon="logos:snowflake-icon" width="48"></iconify-icon>
+        </div>
+        <div class="skill-icon">
+          <iconify-icon icon="skill-icons:aws-light" width="48"></iconify-icon>
+        </div>
+        <div class="skill-icon">
+          <iconify-icon icon="logos:mysql" width="48"></iconify-icon>
+        </div>
+        <div class="skill-icon">
+          <iconify-icon icon="arcticons:microsoft-power-automate" width="48"></iconify-icon>
+        </div>
+        <div class="skill-icon">
+          <iconify-icon icon="vscode-icons:file-type-excel" width="48"></iconify-icon>
+        </div>
+        <div class="skill-icon">
+          <iconify-icon icon="logos:jira" width="48"></iconify-icon>
+        </div>
+        <div class="skill-icon">
+          <iconify-icon icon="logos:javascript" width="48"></iconify-icon>
+        </div>
+        <div class="skill-icon">
+          <iconify-icon icon="devicon:html5" width="48"></iconify-icon>
+        </div>
+        <div class="skill-icon">
+          <iconify-icon icon="devicon:css3" width="48"></iconify-icon>
+        </div>
+      </div>
+
+      <!-- BLOQUE 2 (COPIA EXACTA del BLOQUE 1) -->
+      <div class="flex gap-4">
+        <div class="skill-icon">
+          <iconify-icon icon="logos:python" width="48"></iconify-icon>
+        </div>
+        <div class="skill-icon">
+          <iconify-icon icon="cib:django" width="48"></iconify-icon>
+        </div>
+        <div class="skill-icon">
+          <iconify-icon icon="logos:jupyter" width="48"></iconify-icon>
+        </div>
+        <div class="skill-icon">
+          <iconify-icon icon="logos:microsoft-power-bi" width="48"></iconify-icon>
+        </div>
+        <div class="skill-icon">
+          <iconify-icon icon="ph:file-sql" width="48"></iconify-icon>
+        </div>
+        <div class="skill-icon">
+          <iconify-icon icon="logos:snowflake-icon" width="48"></iconify-icon>
+        </div>
+        <div class="skill-icon">
+          <iconify-icon icon="skill-icons:aws-light" width="48"></iconify-icon>
+        </div>
+        <div class="skill-icon">
+          <iconify-icon icon="logos:mysql" width="48"></iconify-icon>
+        </div>
+        <div class="skill-icon">
+          <iconify-icon icon="arcticons:microsoft-power-automate" width="48"></iconify-icon>
+        </div>
+        <div class="skill-icon">
+          <iconify-icon icon="vscode-icons:file-type-excel" width="48"></iconify-icon>
+        </div>
+        <div class="skill-icon">
+          <iconify-icon icon="logos:jira" width="48"></iconify-icon>
+        </div>
+        <div class="skill-icon">
+          <iconify-icon icon="logos:javascript" width="48"></iconify-icon>
+        </div>
+        <div class="skill-icon">
+          <iconify-icon icon="devicon:html5" width="48"></iconify-icon>
+        </div>
+        <div class="skill-icon">
+          <iconify-icon icon="devicon:css3" width="48"></iconify-icon>
+        </div>
+      </div>
+      
+    </div>
+  </article>
+</section>
+
+<style>
+@keyframes skillsScroll {
+  from { transform: translateX(0); }
+  to { transform: translateX(-50%); }
+}
+
+article {
+  display: flex;
+  align-items: center; /* centra verticalmente todo el contenido */
+  height: 200px; /* ocupa toda la altura disponible */
+}
+
+.skills-scroll {
+  animation: skillsScroll 28s linear infinite;
+  will-change: transform;
+}
+
+.skill-icon {
+  width: 80px;
+  height: 80px;
+  backdrop-filter: blur(12px);
+  border-radius: 16px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+  cursor: pointer;
+}
+
+.skill-icon:hover {
+  transform: scale(1) translateY(-5px);
+  background: var(--color-tag-bg);
+  z-index: 10;
+}
+
+.skill-icon:hover ~ .skills-scroll {
+  animation-play-state: paused;
+}
+
+.skill-icon iconify-icon {
+  width: 44px;
+  height: 44px;
+  filter: brightness(1.1) drop-shadow(0 2px 8px rgba(255, 255, 255, 0.4));
+  transition: all 0.3s ease;
+}
+
+.skill-icon:hover iconify-icon {
+  filter: brightness(1.4) drop-shadow(0 4px 12px rgba(255, 255, 255, 0.6));
+}
+
+
+</style>

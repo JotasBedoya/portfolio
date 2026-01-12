@@ -1,0 +1,67 @@
+---
+import ThemeIcon from "@components/ThemeIcon.astro";
+import NavMenu from "./NavMenu.astro";
+import menuData from "./menuData.json";
+import Button from "@shared/components/Button.astro";
+---
+
+<header
+  class="header
+         sticky top-0 z-50
+         flex flex-col sm:flex-row
+         items-center justify-between
+         w-full
+         p-4 sm:px-10 lg:px-20
+         gap-4 sm:gap-0
+         shadow shadow-secondary/10
+         neutral-600
+         bg-primary/80 backdrop-blur-md
+         supports-[backdrop-filter]:bg-primary/60"
+>
+  <div class="flex items-center justify-between w-full sm:w-auto">
+    <img
+      class="h-8 w-auto sm:h-9 md:h-10"
+      src="/images/JB_LOGO (1).png"
+      alt="JB Logo"
+    />
+
+    <!-- Hamburger (solo mobile) -->
+    <button
+      id="menu-toggle"
+      class="sm:hidden text-gray-600 dark:text-gray-300 text-xl"
+      aria-label="Toggle menu"
+    >
+      ☰
+    </button>
+  </div>
+
+  <!-- Mobile menu as LIST -->
+  <div
+    id="mobile-menu"
+    class="header-container
+           hidden sm:flex
+           w-full sm:w-auto
+           flex-col sm:flex-row
+           items-start sm:items-center
+           gap-4 sm:gap-5
+           pt-4 sm:pt-0"
+  >
+    <div class="w-full sm:w-auto">
+      <NavMenu {menuData} />
+    </div>
+
+    <div class="flex w-full sm:w-auto justify-between sm:justify-start gap-4">
+      <ThemeIcon />
+      <Button label="Resume" href="/docs/Jonathan_Bed_Resume-4.pdf" />
+    </div>
+  </div>
+</header>
+
+<script is:inline>
+  const toggle = document.getElementById("menu-toggle");
+  const menu = document.getElementById("mobile-menu");
+
+  toggle?.addEventListener("click", () => {
+    menu.classList.toggle("hidden");
+  });
+</script>

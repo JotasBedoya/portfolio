@@ -1,0 +1,22 @@
+---
+import socialLinksData from "@shared/data/SocialLinksData.json"
+---
+
+<div class="social-icons flex items-center gap-4 height-50">
+  
+ {socialLinksData.map(({label, icon, link}) => (
+  <div class="flex flex-col relative items-center justify-center group">
+    <a href={link} target="_blank" rel="noopener noreferrer" class="block">
+      <iconify-icon 
+        class="text-current group-hover:text-[#4E97D1] transition-colors cursor-pointer" 
+        icon={icon} 
+        width="30" 
+        height="30"
+      ></iconify-icon>
+    </a>
+    <span class="hidden absolute top-10 group-hover:block bg-secondary text-primary rounded-sm p-1 transition-all transition-discrete">
+      {label}
+    </span>
+  </div>
+))}
+</div>

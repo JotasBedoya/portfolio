@@ -1,0 +1,58 @@
+---
+import AboutContent from "./AboutMe.md";
+import Tag from "@shared/components/Tag.astro";
+---
+
+<section class="about flex flex-col justify-center gap-4 w-full min-h-screen bg-section-secondary-bg p-4">
+  <Tag title="About me" id="about" />
+
+  <article class="flex flex-col lg:flex-row justify-center gap-6 lg:gap-10 max-w-275 mx-auto">
+    <div class="about-pic overflow-hidden
+         w-48 h-64
+         sm:w-64 sm:h-80
+         md:w-80 md:h-[450px]
+         lg:w-[400px] lg:h-[600px]
+         rounded-xl mx-auto lg:mx-0">
+      <img
+        class="w-full h-full object-cover rounded-xl"
+        src="/images/bigger.jpg"
+        alt="Profile image"
+      />
+    </div>
+
+    <div class="about-content flex flex-col gap-5 w-full max-w-[580px] mx-auto lg:mx-0">
+      <AboutContent />
+    </div>
+  </article>
+</section>
+
+<style is:inline>
+    .about-pic{
+        box-shadow: -6px 3px 20px 10px var(--color-fourth);
+    }
+    .about-content{
+        & h3 {
+            font-weight: 600;
+            font-size: 2rem;
+            margin-bottom: 1rem;
+        }
+        & p:not(:last-child) {
+            margin-bottom: .6rem;
+        }
+        & div:has(>ul) {
+            display: flex;
+            gap: 2rem;
+            margin-bottom: 1rem;
+        }
+        & ul {
+            display: flex;
+            flex-direction: column;
+            gap: 1rem;
+        }
+        & li {
+            list-style-type: disc;
+            margin-left: 1.2rem;
+            margin-bottom: .5rem;
+        }
+    }
+</style>

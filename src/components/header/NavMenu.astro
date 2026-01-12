@@ -1,0 +1,38 @@
+---
+
+interface MenuItem{
+    href: string;
+    label: string;
+}
+
+interface Props{
+    menuData: MenuItem[];
+}
+
+const {menuData} = Astro.props as Props;
+---
+
+<nav class="header-nav w-full">
+  <ul
+    class="nav-list
+           flex flex-wrap justify-center sm:justify-end items-center
+           w-full gap-4 sm:gap-5
+           py-3
+           *:text-gray-600 dark:*:text-gray-300
+           *:font-medium
+           text-sm sm:text-base"
+  >
+    {
+      menuData.map(({ href, label }) => (
+        <li class="nav-item">
+          <a
+            class="nav-link transition-colors duration-200 hover:text-[#4E97D1]"
+            href={href}
+          >
+            {label}
+          </a>
+        </li>
+      ))
+    }
+  </ul>
+</nav>

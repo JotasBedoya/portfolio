@@ -1,0 +1,72 @@
+---
+import Tag from "@shared/components/Tag.astro";
+import projectsData from '@shared/data/Projects.json';
+---
+
+<section class="projects pt-5 pb-20 bg-section-secondary-bg -mt-12" id="projects">
+  <div class="max-w-7xl mx-auto px-6">
+    
+    <!-- Header -->
+    <div class="text-center mb-20">
+      <Tag title="Projects" />
+      <h2 class="mt-6 text-xl md:text-2xl text-secondary max-w-2xl mx-auto leading-relaxed">
+        Some of the noteworthy projects I have built.
+      </h2>
+    </div>
+
+    <!-- Grid dinámico -->
+    <div class="grid grid-cols-1 lg:grid-cols-2 gap-12">
+      {projectsData.map((project) => (
+        <div key={project.id}
+             class="group relative overflow-hidden rounded-3xl bg-section-secondary-bg 
+                    shadow-[5px_5px_30px_5px_var(--shadow-color)] 
+                    hover:border-white/30 transition-all duration-500 hover:scale-[1.02] hover:shadow-2xl">
+          
+          <!-- Imagen -->
+          <div class="relative h-64 lg:h-80 rounded-t-3xl bg-cover bg-center bg-no-repeat" 
+              style={`background-image: url(${project.image})`}>
+            <div class="absolute inset-0 bg-gradient-to-t from-black/60 via-transparent to-transparent 
+                        rounded-t-3xl">
+            </div>
+          </div>
+
+          <!-- Contenido -->
+          <div class="p-8">
+            <h3 class="text-2xl font-bold text-title-projects mb-4 drop-shadow-lg">
+              {project.title}
+            </h3>
+            <p class="text-secondary text-lg leading-relaxed mb-8">
+              {project.description}
+            </p>
+            
+            <!-- Tags dinámicos -->
+            <div class="flex flex-wrap gap-2 mb-8">
+              {project.tags.map((tag, index) => (
+                <span key={index} 
+                      class="px-4 py-2 bg-[#d1d5db] hover:bg-[#4E97D1] text-xs font-medium text-[#030712] 
+                             rounded-full transition-colors cursor-pointer">
+                  {tag}
+                </span>
+              ))}
+            </div>
+
+            <!-- Botones dinámicos -->
+            <div class="flex items-center justify-center gap-4">
+              {project.demoUrl && (
+                <a href={project.demoUrl}
+                   class="group/btn inline-flex items-center gap-2 px-10 py-4 bg-button-primary 
+                          hover:bg-[#4E97D1] backdrop-blur-sm rounded-2xl border border-white/20 
+                          hover:border-white/30 transition-all text-primary font-medium text-sm shadow-lg">
+                  Live Demo
+                  <svg class="w-4 h-4 group-hover/btn:translate-x-1 transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14"></path>
+                  </svg>
+                </a>
+              )}
+            </div>
+          </div>
+        </div>
+      ))}
+    </div>
+  </div>
+</section>

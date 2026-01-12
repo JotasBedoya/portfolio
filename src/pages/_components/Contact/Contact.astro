@@ -1,0 +1,79 @@
+---
+import SocialLinks from "@shared/components/SocialLinks.astro";
+import Tag from "@shared/components/Tag.astro";
+---
+
+<section
+  class="contact py-20 -mt-12"
+  id="contact"
+>
+  <div class="max-w-4xl mx-auto px-6 text-center">
+    <!-- Título principal -->
+    <div class="mb-12">
+      <Tag title="Contact" />
+      <h2
+        class="mt-6 text-3xl lg:text-3xl font-bold bg-gradient-to-r text-secondary bg-clip-text mb-6"
+      >
+        Get In Touch
+      </h2>
+      <p
+        class="text-xl lg:text-xl text-secondary max-w-2xl mx-auto leading-relaxed"
+      >
+        What's next? Feel free to reach out to me if you're looking for an
+        analyst, have a query, or simply want to connect.
+      </p>
+    </div>
+
+    <!-- Email principal (primero del array) -->
+    <div class="-mb-12">
+        
+      <div
+        class="w-20 h-20 mx-auto mb-6
+                    rounded-2xl flex items-center justify-center"
+      >
+      <iconify-icon
+            icon="ic:outline-email"
+            class="p-5"
+            width="40" 
+            height="40"></iconify-icon>
+      <a
+        href="mailto:jotaslee3@gmail.com"
+        class="block text-2xl lg:text-3xl font-bold text-secondary hover:text-blue-400
+                  transition-colors group/email mb-2"
+      >
+        jotaslee3@gmail.com
+      </a>
+      </div>
+    </div>
+
+    <!-- Contacto secundario + Social links -->
+    <div class="-mb-12">
+        
+      <div
+        class="w-20 h-20 mx-auto mb-6
+                    rounded-2xl flex items-center justify-center"
+      >
+      <iconify-icon
+            icon="ic:sharp-whatsapp"
+            class="p-5"
+            width="40" 
+            height="40"></iconify-icon>
+      <a
+        href="https://wa.me/573182646012"
+        class="block text-2xl lg:text-3xl font-bold text-secondary hover:text-blue-400
+                  transition-colors mb-2"
+      >
+        +573182646012
+    </a>
+      </div>
+    </div>
+    <div class="mt-20 -mb-15">
+        <p>You may also find me on these platforms!</p>
+    </div>
+    <div class="flex items-center justify-center gap-4 order-1 sm:order-2 mt-20">
+        
+      <SocialLinks />
+    </div>
+
+  </div>
+</section>
